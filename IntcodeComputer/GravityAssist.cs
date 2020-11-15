@@ -4,17 +4,24 @@ namespace IntcodeComputer
 {
     internal static class GravityAssist
     {
-        public static Tuple<int, int> AdjustFor(string program, int target)
+        private const int MinNoun = 0;
+        private const int MinVerb = 0;
+        private const int MaxNoun = 99;
+        private const int MaxVerb = 99;
+        private const int NounInputAddress = 1;
+        private const int VerbInputAddress = 2;
+
+        internal static Tuple<int, int> AdjustFor(string program, int target)
         {
             var processor = new Processor();
 
-            for (var noun = 0; noun <= 99; noun++)
+            for (var noun = MinNoun; noun <= MaxNoun; noun++)
             {
-                for(var verb = 0; verb <= 99; verb++)
+                for(var verb = MinVerb; verb <= MaxVerb; verb++)
                 {
                     processor.Load(program);
-                    processor.Poke(1, noun);
-                    processor.Poke(2, verb);
+                    processor.Poke(NounInputAddress, noun);
+                    processor.Poke(VerbInputAddress, verb);
                     processor.Run();
 
                     if (processor.ProgramOutput == target)
