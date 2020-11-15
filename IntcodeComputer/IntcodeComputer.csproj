@@ -43,6 +43,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="GravityAssist.cs" />
+    <Compile Include="InstructionSet.cs" />
+    <Compile Include="Processor.cs" />
+    <Compile Include="ProcessorState.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
